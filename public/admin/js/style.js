@@ -19,3 +19,21 @@ if(buttonStatus.length > 0){
 		buttonCurrent.classList.add('bg-[#4BC18F]', 'text-[white]')
 	}
 }
+
+// Form Search
+const formSearch = document.querySelector(`form[form-search]`);
+
+if(formSearch){
+	formSearch.addEventListener('submit', (event) => {
+		event.preventDefault();
+		let value = event.target.elements.keyword.value;
+		let url = new URL(window.location.href);
+		if(value){
+			url.searchParams.set('keyword', value);
+		}
+		else{
+			url.searchParams.delete('keyword');
+		}
+		window.location.href = url.href;
+	});
+}

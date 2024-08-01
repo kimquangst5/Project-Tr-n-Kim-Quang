@@ -11,13 +11,19 @@ module.exports.index = async (req, res) => {
 	}
 
 	// Tính Năng Tìm Kiếm Cơ Bản
-	
+	let keyword = '';
+	if(req.query.keyword){
+		const regex = new RegExp(req.query.keyword, 'i')
+		find.title = regex;
+		keyword = req.query.keyword
+	}
 	// Hết Tính Năng Tìm Kiếm Cơ Bản
 
 	const product = await Product.find(find);
 
 	res.render('admin/pages/product/index.pug', {
 		pageTitle: 'Trang sản phẩm',
-		product: product
+		product: product,
+		keyword: keyword
 	});
 };
