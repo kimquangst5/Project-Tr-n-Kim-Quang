@@ -6,9 +6,18 @@ block main
 	div(class="rounded-[10px] truncate border-[1px] border-[#A6A6A6] mb-[20px]")
 		div(class="p-[10px] bg-[#A6A6A6] font-bold") Bộ lọc và tìm kiếm
 		div(class="p-[10px] flex gap-[10px] flex-wrap ")
-			button(class="rounded-[10px] border-[1px] border-[#4BC18F] p-[10px] capitalize") tất cả
-			button(class="rounded-[10px] border-[1px] border-[#4BC18F] p-[10px] capitalize") hoạt động
-			button(class="rounded-[10px] border-[1px] border-[#4BC18F] p-[10px] capitalize") dừng hoạt động
+			button(
+				class="rounded-[10px] border-[1px] border-[#4BC18F] p-[10px] capitalize"
+				button-status = ''
+			) tất cả
+			button(
+				class="rounded-[10px] border-[1px] border-[#4BC18F] p-[10px] capitalize"
+				button-status = 'active'
+			) hoạt động
+			button(
+				class="rounded-[10px] border-[1px] border-[#4BC18F] p-[10px] capitalize"
+				button-status = 'inactive'
+			) dừng hoạt động
 
 	div(class="rounded-[10px] truncate border-[1px] border-[#A6A6A6]")
 		div(class="p-[10px] bg-[#A6A6A6] font-bold") Bộ lọc và tìm kiếm
