@@ -10,6 +10,10 @@ module.exports.index = async (req, res) => {
 		find.status = req.query.status
 	}
 
+	// Tính Năng Tìm Kiếm Cơ Bản
+	
+	// Hết Tính Năng Tìm Kiếm Cơ Bản
+
 	const product = await Product.find(find);
 
 	res.render('admin/pages/product/index.pug', {

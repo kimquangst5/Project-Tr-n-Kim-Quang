@@ -15,5 +15,7 @@ if(buttonStatus.length > 0){
 
 	const statusCurrent = url.searchParams.get('status') || '';
 	const buttonCurrent = document.querySelector(`button[button-status = '${statusCurrent}' ]`);
-	buttonCurrent.classList.add('bg-[#4BC18F]', 'text-[white]')
+	if(buttonCurrent){
+		buttonCurrent.classList.add('bg-[#4BC18F]', 'text-[white]')
+	}
 }
