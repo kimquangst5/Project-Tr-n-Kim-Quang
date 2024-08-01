@@ -1,4 +1,46 @@
 extends ../../layouts/default.pug
 
 block main
-	div(class="font-bold text-[30px] capitalize pb-[10px]") Trang quản lí sản phẩm
+	div(class="text-right tracking-[20px] font-bold text-[30px] capitalize pb-[10px]") Trang quản lí sản phẩm
+
+	div(class="rounded-[10px] truncate border-[1px] border-[#A6A6A6] mb-[20px]")
+		div(class="p-[10px] bg-[#A6A6A6] font-bold") Bộ lọc và tìm kiếm
+		div(class="p-[10px] flex gap-[10px] flex-wrap ")
+			button(class="rounded-[10px] border-[1px] border-[#4BC18F] p-[10px] capitalize") tất cả
+			button(class="rounded-[10px] border-[1px] border-[#4BC18F] p-[10px] capitalize") hoạt động
+			button(class="rounded-[10px] border-[1px] border-[#4BC18F] p-[10px] capitalize") dừng hoạt động
+
+	div(class="rounded-[10px] truncate border-[1px] border-[#A6A6A6]")
+		div(class="p-[10px] bg-[#A6A6A6] font-bold") Bộ lọc và tìm kiếm
+		div(class="p-[10px] flex gap-[10px] flex-wrap ")
+			table(class="w-full")
+				thead
+					tr(class="capitalize")
+						th STT
+						th hình ảnh
+						th sản phẩm
+						th giá
+						th trạng thái
+						th hoạt động
+				tbody
+					each it, i in product 
+						tr
+							td(class="text-center ") #{i + 1}
+							td
+								img(
+									src=it.thumbnail
+									alt=it.title
+									width='100px'
+									height='auto'
+									class="mx-auto"
+								)
+							td #{it.title}
+							td(class="text-center") #{it.price}
+							td(class="text-center ")
+								- if(it.status == 'active')
+									button(class="bg-[#1E429F] text-[white] rounded-[10px] px-[10px] py-[5px] text-[10px] capitalize") Hoạt động
+								- else
+									button(class="bg-[#323232] text-[white] rounded-[10px] px-[10px] py-[5px] text-[10px] capitalize") dừng hoạt động
+							td(class="text-center ")
+								button(class="bg-[#2D2E28] text-[white] rounded-[10px] px-[10px] py-[5px] text-[14px] capitalize mr-[10px]") Sửa
+								button(class="bg-[#FA4F64] text-[white] rounded-[10px] px-[10px] py-[5px] text-[14px] capitalize") Xóa

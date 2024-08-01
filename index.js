@@ -1,6 +1,8 @@
 const express = require('express');
 require('dotenv').config();
 const port = process.env.port;
+
+// Khởi Chạy Ứng Dụng
 const app = express();
 
 app.set('views', './views');
@@ -19,6 +21,10 @@ adminRoute.index(app);
 
 // Nhúng File Tĩnh
 app.use(express.static('public'));
+
+// Database
+const mongoose = require('./config/database');
+mongoose.connect();
 
 app.listen(port, () => {
 	console.log(`Đang lắng nghe cổng ${port}`);
