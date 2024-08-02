@@ -20,7 +20,7 @@ if(buttonStatus.length > 0){
 	}
 }
 
-// Form Search
+// Tìm kiếm
 const formSearch = document.querySelector(`form[form-search]`);
 
 if(formSearch){
@@ -37,3 +37,4 @@ if(formSearch){
 		window.location.href = url.href;
 	});
 }
+// Hết Tìm kiếm

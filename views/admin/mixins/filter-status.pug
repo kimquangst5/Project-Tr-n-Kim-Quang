@@ -1,0 +1,6 @@
+mixin filter-status(list)
+	each it in list
+		button(
+			class="rounded-[10px] border-[1px] border-[#4BC18F] p-[10px] capitalize"
+			button-status = it.value
+		) #{it.lable}

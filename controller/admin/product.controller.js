@@ -6,6 +6,21 @@ module.exports.index = async (req, res) => {
 		deleted: false
 	};
 
+	const filterStatus = [
+		{
+			lable: 'tất cả',
+			value: ''
+		},
+		{
+			lable: 'hoạt động',
+			value: 'active'
+		},
+		{
+			lable: 'dừng hoạt động',
+			value: 'inactive'
+		}
+	];
+
 	if(req.query.status){
 		find.status = req.query.status
 	}
@@ -24,6 +39,7 @@ module.exports.index = async (req, res) => {
 	res.render('admin/pages/product/index.pug', {
 		pageTitle: 'Trang sản phẩm',
 		product: product,
-		keyword: keyword
+		keyword: keyword,
+		filterStatus: filterStatus
 	});
 };
