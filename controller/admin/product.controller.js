@@ -34,12 +34,16 @@ module.exports.index = async (req, res) => {
 	}
 	// Hết Tính Năng Tìm Kiếm Cơ Bản
 
+	// Pagination
+	
+	// Hết Pagination
+
 	const product = await Product.find(find);
 
 	res.render('admin/pages/product/index.pug', {
 		pageTitle: 'Trang sản phẩm',
 		product: product,
 		keyword: keyword,
-		filterStatus: filterStatus
+		filterStatus: filterStatus,
 	});
 };
