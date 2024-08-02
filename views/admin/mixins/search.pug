@@ -1,0 +1,16 @@
+mixin search(keyword)
+	form(
+		form-search=''
+		class="rounded-[10px] truncate border-[1px] border-[#9C9C9C] w-1/3 h-full flex "
+	)
+		input(
+			type="search", 
+			name="keyword" 
+			class="flex-1 outline-none px-[10px] text-[30px]"
+			placeholder='Tìm kiếm ở đây'
+			value = keyword
+		)
+		button(
+			type="submit"
+			class="bg-[#4BC18F] text-[white] text-[30px] px-[10px] py-[5px] ml-auto"
+			) Tìm
