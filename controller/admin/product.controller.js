@@ -35,15 +35,35 @@ module.exports.index = async (req, res) => {
 	// Hết Tính Năng Tìm Kiếm Cơ Bản
 
 	// Pagination
+	const pagination = {
+		current: 1,
+		limit: 4
+	};
+
+	if(req.query.page){
+		pagination.current = parseInt(req.query.page);
+	}
+
+	
+	pagination.skip = (pagination.current - 1) * pagination.limit
+	
+	pagination.cntProduct = await Product.countDocuments(find);
+	if(pagination.cntProduct > 0){
+		pagination.totalPage = Math.ceil(pagination.cntProduct / pagination.limit);
+	}
 	
 	// Hết Pagination
-
-	const product = await Product.find(find);
-
+	
+	const product = await Product
+	.find(find)
+	.limit(pagination.limit)
+	.skip(pagination.skip)
+	
 	res.render('admin/pages/product/index.pug', {
 		pageTitle: 'Trang sản phẩm',
 		product: product,
 		keyword: keyword,
 		filterStatus: filterStatus,
+		pagination: pagination
 	});
 };
